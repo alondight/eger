@@ -1,0 +1,103 @@
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EgerChatTest</title>
+<link href="css/egerChat.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css"
+	href="css/jquery.mobile-1.3.2.css" />
+<link rel="stylesheet" type="text/css" href="themes/mex.css" />
+<link rel="stylesheet" type="text/css" href="themes/mex.min.css" />
+<link rel="stylesheet"
+	href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+
+
+
+<script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+<!-- 	<script type="text/javascript" src="http://192.168.2.5:3000/socket.io/socket.io.js"></script> -->
+<script type="text/javascript"
+	src="http://localhost:3000/socket.io/socket.io.js"></script>
+<script src="js/jquery.mobile-1.3.2.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.10.3.custom.js"></script>
+<script type="text/javascript" src="js/chat.io.js"></script>
+<script type="text/javascript" src="js/jquery.tmpl.min.js"></script>
+</head>
+
+
+<body>
+	<div data-role="page" data-theme="a" id="chatPage">
+
+		<div data-role="header" data-position="fixed"
+			style="padding: 10px 0px 0px 0px;">
+			<a id="ChatBackbtn" href="#" data-transition="slide"
+				style="border: 0px; margin: 10px;"> <img src="images/back1.png"
+				style="width: 20px;">
+			</a>
+			<h1>
+				<img id="headerEger" src="images/logo1.png" style="width: 40px;">
+			</h1>
+			<a href="#withStatus" data-transition="slide" class="ui-btn-right"
+				style="border: 0px; margin: 10px;"> <img src="images/user1.png"
+				style="width: 20px;">
+			</a>
+			
+			
+			<div style="width: 30px;" style="float:left;">
+				<img id="clear-message" src="images/clearBTN.png" style="width: 100%;">
+			</div>
+			<div id="roomView">
+			</div>
+		</div>
+
+		<div data-role="content" id="nickWrap"
+			style="background-color: white;">
+			<h3>대화에 참여할 대화명을 입력하세요.</h3>
+			<p id="nickError"></p>
+			<div style="width: 85%; float: left;" data-inline="true">
+				<input id="nickname" type="text" size="35">
+			</div>
+			<div style="width: 10%; float: right;" data-inline="true">
+				<img id="setNick" src="images/my.png"
+					style="width: 25px; margin-top: 10px;">
+			</div>
+		</div>
+
+
+		<div data-role="content" id="contentWrap">
+			<div id="chatWrap">
+				<div id="chat"></div>
+			</div>
+				
+				
+			<div data-role="footer" data-position="fixed" id="chatFooter">
+			
+				<div style="width: 80%; float: left; margin-left: 10px;"
+					data-inline="true">
+					<input type="text" id="message">
+				</div>
+				<div id="send-message" style="width: 15%; float: right;"
+					data-inline="true">
+					<img src="images/send.png" style="width: 90%; padding: 10px 5%">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div data-role="page" data-theme="a" id="withStatus">
+		<div data-role="header" data-position="fixed"
+			style="padding: 10px 0px 0px 0px;">
+			<a href="#chatPage" data-transition="slide"
+				style="border: 0px; margin: 10px;"> <img src="images/back1.png"
+				style="width: 20px;">
+			</a>
+			<h1>
+				<img src="images/logo1.png" style="width: 40px;">
+			</h1>
+		</div>
+
+		<div id="users" data-role="content">
+			<ul id="usersUl" data-role="listview" data-filter="true"
+				data-autodividers="true">
+			</ul>
+		</div>
+	</div>
+</body>
