@@ -1,0 +1,44 @@
+@CHARSET "UTF-8";
+
+
+.inputMileage{
+	width: 20px;
+}
+.stamphow{
+	width: 20px;
+}
+.stampcontent{
+	/* width: 80px; */
+}
+.stampexpl{
+	font-size:80%;
+	color: gray;
+}
+
+
+/*buttons*/
+.wall-of-button {margin:0 auto;width:100%;text-align:left;}
+.button {display:inline-block;margin:0 5px 19px 0;}
+.button {-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;behavior:url(http://www.yourinspirationweb.com/tf/bolder/wp-content/themes/bolder/PIE.htc);-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.25);background:url('images/overlay-button.png') repeat-x 0 0 #222;
+        border-bottom:1px solid rgba(0,0,0,0.25);color:#fff!important;cursor:pointer;display:inline-block;font-size:13px;font-weight:bold;
+        line-height:1;overflow:visible;padding:5px 15px 6px;position:relative;text-decoration:none;text-shadow:0 -1px 1px rgba(0,0,0,0.25);width:auto;}
+.orange.button {background-color:#ff5c00;}
+.orange.button:hover {background-color:#d45500;}
+.blue.button {background-color:#2daebf;}
+.blue.button:hover {background-color:#007d9a;}
+.green.button {background-color:#91bd09;}
+.green.button:hover {background-color:#749a02;}
+.red.button {background-color:#e33100;}
+.red.button:hover {background-color:#872300;}
+.yellow.button {background-color: #ffb515;}
+.yellow.button:hover {background-color:#fc9200;}
+.magenta.button {background-color:#a9014b;}
+.magenta.button:hover {background-color:#630030;}
+.button:hover {background-color:#111;}
+.deleteCoupone {background:url('../images/basket.png') no-repeat; height:24px; margin: 0;}
+.deleteCoupone:hover{background:url('../images/basketon.png') no-repeat; height:24px; margin: 0;}
+
+.large.button {font-size:14px;padding:8px 19px 9px;}
+.small.button {font-size:11px;}
+.button:hover,.button:active {text-decoration:none;}
+

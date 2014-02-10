@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.bitacademy.java41.dao.Eger2Dao">
+	<select id="listByMycoupone" parameterType="String" resultType="Event">
+		select
+		a.SNO,a.COUPONE_NO,a.ECONTENT,a.ETIME,a.ECONDITION,a.E_REG_DATE,a.E_COUPONE_LEVEL,b.COUPONE_LEVEL,b.COUPONE_USEDATE,c.SNAME,c.SPPATH,c.S_ADDRESS
+		from EVENT a , CCOUPONE b, STORE c
+		where a.COUPONE_NO = b.COUPONE_NO AND a.SNO = c.SNO AND  b.SCNO in
+		(SELECT SCNO from STORE_CLIENT WHERE BARCODE=#{barcode});
+	</select>
+
+</mapper> 
+

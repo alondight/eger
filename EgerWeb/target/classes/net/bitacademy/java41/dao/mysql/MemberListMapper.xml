@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.bitacademy.java41.dao.MemberListDao">
+
+
+	<select id="memberList" parameterType="int" resultType="StoreClient">
+		select
+		SCNO,SNO,BARCODE,SC_REG_DATE,STACKSTAMP,STACKMILEAGE
+		from STORE_CLIENT
+		where SNO=#{sno}
+		order by SCNO desc;
+	</select>
+
+	<select id="memberSCNO" parameterType="int" resultType="int">
+		select
+		SCNO
+		from STORE_CLIENT
+		where SNO=#{sno}
+		order by SCNO desc;
+	</select>
+
+	<insert id="addClientCoupone" parameterType="map">
+		INSERT INTO CCOUPONE(SCNO,COUPONE_NO)
+		values
+		<foreach item="item" index="index" collection="list"
+			separator=",">
+			(#{item},#{coupone_no})
+		</foreach>
+	</insert>
+
+	<select id="membercount" parameterType="int" resultType="CCoupone">
+		select
+		c.coupone_no as coupone_no,c.coupone_level as coupone_level,e.econtent
+		as econtent,e.etime as etime ,e.econdition as econdition
+		from CCOUPONE
+		c, EVENT e
+		where c.coupone_no = e.coupone_no and c.scno=#{scno}
+	</select>
+
+	<update id="payCount" parameterType="map">
+		update CCOUPONE
+		set COUPONE_LEVEL = 1,COUPONE_USEDATE=now()
+		where SCNO=#{scno}
+		AND COUPONE_NO IN
+		<foreach item="item" index="index" collection="list"
+			separator="," open="(" close=")">
+			#{item}
+		</foreach>
+	</update>
+	<select id="findRate" parameterType="int" resultType="Mileage">
+		select SNO,CASH_MILEAGE_RATE,CARD_MILEAGE_RATE
+		from MILEAGE
+		where SNO=#{sno}
+	</select>
+
+	<select id="getStoreClient" parameterType="int" resultType="StoreClient">
+		select
+		SCNO,SNO,BARCODE,SC_REG_DATE,STACKSTAMP,STACKMILEAGE
+		from STORE_CLIENT
+		where SCNO=#{scno}
+		order by SCNO desc;
+	</select>
+
+	<update id="stackMileage" parameterType="map">
+		update STORE_CLIENT
+		set STACKMILEAGE = #{stackMileage}
+		where SCNO=#{scno}
+	</update>
+
+	<insert id="changeMileage" parameterType="map">
+		INSERT INTO CMILEAGE(SCNO,CHANGEMILE,MILE_REG_DATE)
+		values(#{scno},#{changeMileage},now())
+	</insert>
+	
+	<insert id="usingPoint" parameterType="map">
+		INSERT INTO CMILEAGE(SCNO,CHANGEMILE,MILE_REG_DATE)
+		values(#{scno},#{usedPoint},now())
+	</insert>
+	
+	<update id="stackStamp" parameterType="map">
+		update STORE_CLIENT
+		set STACKSTAMP = #{stackStamp}
+		where SCNO=#{scno}
+	</update>
+	<select id="findStampRate" parameterType="int" resultType="Stamp">
+		select STAMPNO,SNO,STAMP_RATE,STAMP_CONTENT,STAMP_LEVEL,STAMP_START,STAMP_END
+		from STAMP
+		where SNO=#{sno}
+	</select>
+	<insert id="addStampCoupone" parameterType="map">
+		INSERT INTO CCOUPONE(SCNO,COUPONE_NO)
+		values (#{scno},#{coupone_no})
+	</insert>
+	<select id="getStampEvent" parameterType="int" resultType="Event">
+		select COUPONE_NO,SNO,ECONTENT,ETIME,ECONDITION,E_REG_DATE,E_COUPONE_LEVEL
+		from EVENT
+		where SNO=#{sno} AND E_COUPONE_LEVEL=1
+	</select>
+	<select id="getStampEventLevel2" parameterType="int" resultType="Event">
+		select COUPONE_NO,SNO,ECONTENT,ETIME,ECONDITION,E_REG_DATE,E_COUPONE_LEVEL
+		from EVENT
+		where SNO=#{sno} AND E_COUPONE_LEVEL=1
+	</select>
+	<select id="getCdevice" parameterType="String" resultType="String">
+		select CDEVICE
+		from CLIENT
+		where BARCODE=#{barcode}
+	</select>
+	<select id="getStoreName" parameterType="int" resultType="String">
+		select SNAME
+		from STORE
+		where SNO=#{sno}
+	</select>
+</mapper> 

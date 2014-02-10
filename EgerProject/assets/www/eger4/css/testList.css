@@ -1,0 +1,250 @@
+@charset "utf-8";
+
+#eger4Header {
+	padding:10px 0px 0px 0px;
+}
+
+#headerearchA {
+	border: 0px; margin: 7px;
+}
+
+#headerSearch {
+	width: 17px;
+}
+
+#headerEger {
+	width: 40px;
+}
+
+#headerUserA {
+	border:0px;
+	margin: 10px;
+}
+
+#headerUser {
+	width: 20px;
+}
+
+
+
+#storeNameSearchDIV {
+	margin: 5% 3% 0 0;
+	width: 80%;
+}
+
+#storeNameSearch{
+	width:6%;
+	float: right;
+	margin: -40px 10% 0 0;
+}
+
+
+#secondHeader {
+	background-color: white;
+	color: #212121;
+	height: 55px;
+	font-size: 20px;
+	margin-top: 0px;
+	padding: 11px 0px;
+}
+
+#storeListContent {
+	padding: 0%;
+	background-image: url('../images/egerbg2.png');
+	background-repeat: no-repeat;
+	background-position:center;
+	background-size: 100% 100%;
+}
+
+#todayAddStoreList {
+	background-image: url('../images/gogi.jpg');
+	background-size: 100% 100%;
+	padding: 7px 0% 10px;
+	margin-bottom: 8px;
+}
+
+#todayAddStoreLabel {
+	padding: 10px 0 0 5%;
+	font-size: 22px;
+	font-weight: bolder;
+	color: #F15F5F;
+}
+
+#best {
+	color: #F15F5F;
+}
+
+#no {
+	font-weight: bolder;
+	color: #F6F6F6;
+}
+
+
+#aroundStoreStarScoreIMG, #aroundStoreStarScoreIMG_right {
+	z-index: 11;
+	width: 20%;
+	position: absolute;
+	margin: 158px 0 0 22%;
+}
+
+#todayAddStore0 {
+	margin-left: 0%;
+}
+
+
+.crownIcon {
+	position: absolute;
+	z-index: 1;
+	width: 11%;
+	margin-top: -6px;
+}
+
+
+
+.todayAddStoreIMG {
+	-webkit-border-radius: 5%;
+	position: absolute;
+	margin: 10px 4%;
+	width: 25%;
+	min-height: 80px;
+	max-height: 80px;
+}
+
+.todayAddStoreSname {
+	position: absolute;
+	width: 25%;
+	font-size: 18px;
+	font-weight: bolder;
+	text-align: center;
+	margin-top: 90px;
+	margin-left: 4%;
+	color: white;
+}
+
+.todayAddStoreAddress {
+	position: absolute;
+	width: 25%;
+	font-size: 12px;
+	text-align: center;
+	margin-top: 110px;
+	margin-left: 4%;
+	color: white;
+}
+
+#todayAddStore1 {
+	margin-left: 32.8%;
+}
+
+#todayAddStore2 {
+	margin-left: 65.4%;
+}
+
+#whiteRadiusIMG {
+	-webkit-border-radius: 10%;
+	margin: 1% 0 0 1.5%;
+	width: 30%;
+	height: auto;
+}
+
+#aroundStoreListLeft {
+	border: 1px solid #b3b3b3;
+	-webkit-border-radius: 3%;
+	width: 45%;
+	margin: 10px 2.5% 10px 2.5%;
+	padding: 0 0 8px 0;
+	background-color: white;
+}
+
+#aroundStoreListRight {
+	border: 1px solid #b3b3b3;
+	-webkit-border-radius: 3%;
+	width: 45%;
+	margin: 10px 2.5% 10px 2.5%;
+	padding: 0 0 8px 0;
+	background-color: white;
+}
+
+#blackDIV {
+	-webkit-border-radius: 5% 5% 0 0;
+	position: absolute;
+	width: 44.7%;
+	height: 40px;
+}
+#blackDIVRight {
+	-webkit-border-radius: 5% 5% 0 0;
+	position: absolute;
+	width: 44.7%;
+	height: 40px;
+}
+
+
+
+#aroundStoreLeftIMG, #aroundStoreRightIMG {
+	-webkit-border-radius: 3% 3% 0 0;
+	width: auto !important;
+	min-width: 100%;
+	max-width: 100%;
+	min-height: 150px;
+	max-height: 150px;
+}
+
+#arroundStoreLeftName, #arroundStoreRightName {
+	font-weight: bolder;
+	font-size: 20px;
+	margin: 5% 2%;
+}
+
+#dotDIV {
+	margin-left:7.5%;
+	width: 85%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+#dotDIV45 {
+	margin-left:7.5%;
+	width: 45%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+#mileageIMG {
+	width: 13%;
+	margin-right: 2%;
+}
+#mileageIMGRight {
+	width: 13%;
+	margin-right: 2%;
+}
+
+#stampIMG{
+	width: 11%;
+}
+#stampIMGRight {
+ 	width: 11%;
+}
+#eventIMG {
+	width: 18%;
+}
+#eventIMGRight {
+	width: 18%;
+}
+
+#LeftstoreMemberAndFeed, #RightstoreMemberAndFeed {
+	padding:10px 0 0 2%;
+	font-size: 15px;
+	color: #BDBDBD;
+	position: absolute;
+	z-index: 1;
+}
+
+#feedIcon, #userIcon {
+	width: 7%;
+}
+#feedIconRight, #userIconRight {
+	width: 10%;
+}
+
+

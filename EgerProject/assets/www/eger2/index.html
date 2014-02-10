@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>EGER</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.3.2.css" />
+<link rel="stylesheet" type="text/css" href="css/couponList.css" />
+<link rel="stylesheet" type="text/css" href="css/testView.css" />
+<link rel="stylesheet" type="text/css" href="themes/mex.css" />
+<link rel="stylesheet" type="text/css" href="themes/mex.min.css" />
+
+<script src="js/md5.js"></script>
+<script src="js/jquery-1.10.2.js"></script>
+<script src="js/jquery.mobile-1.3.2.js"></script>
+
+<script src="../PushNotification.js"></script>
+<script src="../common.js"></script>
+<script src="../cordova.js"></script>
+<script type="text/javascript"
+      src="http://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAbYJeCpOzMoR7sM0p9mP2lsGaFkiFn-fs&sensor=true">
+    </script>
+ <script src="js/index.js"></script>
+</head>
+<body>
+	<div data-role="page" data-theme="a" id="page2">
+		<div data-role="header" data-position="fixed" style="padding:10px 0px 0px 0px;">
+			<a style="border: 0px; margin: 7px;">
+				<img id="headerSearch" src="images/readingGlassesICON.png" style="width: 17px;">	
+			</a>
+			<h1><img id="headerEger" src="images/logo2.png" style="width: 40px;"></h1>
+			<a style="border: 0px; margin: 10px;">
+				<img id="headerUser" src="images/userIcon2.png" style="width: 20px;">	
+			</a>
+			
+			<nav data-role="navbar" data-iconpos="top" class="ui-btn-active" id="topFooterNAV">
+			<ul>
+				<li id="footeraction3"><a href="#">My Store</a></li>
+				<li id="footeraction2">
+					<a href="#" class="ui-btn-active ui-state-persist">All Coupone</a>
+				</li>
+				<li id="setting"><a href="#">Setting</a></li>
+			</ul>
+		</nav>
+		</div>
+		
+		
+		<nav id="usedORnewCoupon" data-role="navbar" data-iconpos="bottom" class="ui-navbar">
+			<ul class="ui-grid-a">
+				<li id="gomycoupone" class="ui-block-a">
+					<a href="#" data-corners="false" data-shadow="false" data-iconshadow="true"
+					data-wrapperels="span" data-inline="true"
+					class="ui-btn-active ui-state-persist ui-btn ui-btn-inline ui-btn-up-a">
+						<span class="ui-btn-text">Useable</span>
+					</a>
+				</li>
+				<li id="gomyusedcoupone" class="ui-block-b">
+					<a href="#" data-corners="false" data-shadow="false" data-iconshadow="true"
+					data-wrapperels="span" data-inline="true"
+					class="ui-btn ui-btn-inline ui-btn-up-a">
+						<span class="ui-btn-text">Used</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+
+		<div id="allStoreListDiv">
+			<div data-role="content" id="couponListContent">
+			<hr style="border: 1px solid #A6A6A6; width: 90%; margin:0 5%;">
+				<div id="couponCount">
+					<span>
+						<img id="couponCountIcon" src="images/allcoupon.png">
+						<label> x </label>
+						<span id="CouponeSize"></span>
+					</span>
+				</div>
+
+				<div id="aroundStoreListDIV">
+					<div class="ui-grid-a" id="aroundStoreListDIVTo" style="display: none">
+						<div class="ui-block-a" id="aroundStoreListLeft">
+							<div id="btnCouponLeft">
+								<div id="couponListStoreNameLeft"></div>
+								<span id="couponListStoreAddressLeft"></span><br>
+								<span id="couponNameLeft"></span>
+								<div id="dotDIV">
+									<span id="couponeExpiryDateLeft"></span>
+								</div>
+							</div>
+						</div>
+						
+						<div class="ui-block-b" id="aroundStoreListRight">
+							<div id="btnCouponRight">
+								<div id="couponListStoreNameRight"></div>
+								<span id="couponListStoreAddressRight"></span><br>
+								<span id="couponNameRight"></span>
+								<div id="dotDIV">
+									<span id="couponeExpiryDateRight"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div data-role="content" id="couponUsedListContent" style="display: none">
+				
+				<hr style="border: 1px solid #A6A6A6; width: 90%; margin:0 5%;">
+				<table id="UsedCouponeListDIV">
+					<tbody>
+						<tr id="UsedCouponeListDIVTo" style="display: none;">
+							<td style="width: 35%;"></td>
+							<td style="width: 35%;"></td>
+							<td style="width: 30%;"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+
+
+
+
+
+		<div data-role="content" id="storeViewContent" style="display: none; ">
+			<label id="storeViewName" data-inline="true"></label>
+			
+			<img id="myStoreAddBTN" src="images/pin1.png">
+			<img id="myStoreAddBTN2" src="images/pin2.png" style="display: none;">
+			
+			<img id="storeStarScoreIMG">
+			
+			<label id="storeStarScore"></label>
+			
+			<span id="storeIMG_DIV">
+				<img id="storeViewClearIMG" src="images/clearBar.png">
+				<img id="storeViewIMG" />
+			</span>
+			
+			<div id="storeEventInfo">이벤트정보</div>
+
+			<table id="storeEventTable">
+				<tr>
+					<th>마일리지</th>
+					<td>
+						<label>현금 <span id="storeViewMileageCash"></span>%</label>
+						<label>카드 <span id="storeViewMileageCard"></span>%</label>
+					</td>
+				</tr>
+			</table>
+			
+			<table id="storeStampTable">
+				<tr>
+					<th>
+						스탬프
+					</th>
+					<td>
+					</td>
+				</tr>
+			</table>
+			
+			<table id="storeCouponeTable">
+				<tr>
+					<th>
+						쿠폰
+					</th>
+					<td>
+					</td>
+				</tr>
+			</table>
+			
+			<hr>
+			<a href="#" id="chatFixed">
+			<span><img id="chatImage" src="images/chat.jpg" ></span>
+			<span>실시간 문의하기!</span>
+			</a>
+			<hr>
+			
+			<div id="storeInfo">매장정보</div>
+			
+			<table id="storeInfoTable">
+				<tr>
+					<th valign="top">소개</th>
+					<td></td>
+				</tr>
+				<tr>
+					<th>운영시간</th>
+					<td></td>
+				</tr>
+				<tr>
+					<th>전화번호</th>
+					<td>
+						<img id="phoneIcon" src="images/Phone-icon.png">
+					</td>
+				</tr>
+				<tr>
+					<th valign="top">주소</th>
+					<td></td>
+				</tr>
+			</table>
+			
+			<div id="map"></div>
+			
+			<div id="feedList">문의 or 평가</div>
+			
+			<table id="feedTable">
+				<tr>
+					<th style="width: 25%">평가하기</th>
+					<th style="width: 65%">
+						<img src="images/clearStarBTN_IMG.png" id="clearStarBTN1" style="position: absolute; width: 8%;">
+						<img src="images/clearStarBTN_IMG.png" id="clearStarBTN2" style="position: absolute; width: 8%; left: 38%;">
+						<img src="images/clearStarBTN_IMG.png" id="clearStarBTN3" style="position: absolute; width: 8%; left: 47%;">
+						<img src="images/clearStarBTN_IMG.png" id="clearStarBTN4" style="position: absolute; width: 8%; left: 56%;">
+						<img src="images/clearStarBTN_IMG.png" id="clearStarBTN5" style="position: absolute; width: 8%; left: 65%;">
+						<img src="images/star0.png" id="star0" class="feedStarIMG">
+						<img src="images/star1.png" id="star1" class="feedStarIMG" style="display: none;">
+						<img src="images/star2.png" id="star2" class="feedStarIMG" style="display: none;">
+						<img src="images/star3.png" id="star3" class="feedStarIMG" style="display: none;">
+						<img src="images/star4.png" id="star4" class="feedStarIMG" style="display: none;">
+						<img src="images/star5.png" id="star5" class="feedStarIMG" style="display: none;">
+					</th>
+					<th style="width: 7%">
+						<label id="starScore"> 0.0 </label>
+					</th>
+					<th>
+						<img id="starScoreClear" src="images/clear.png" style="width: 3%;">
+						<img id="starScoreDelete" src="images/delete.png" style="display: none;width: 3%;">
+					</th>
+				</tr>
+			</table>
+
+			<div id="feedDIV">
+				<textarea id="feedContent" placeholder="문의사항은 내용만 입력하세요."></textarea>
+			</div>
+			
+			<div id="feedBTN">
+				<input id="feedAddBTN" type="button" value="ADD">
+			</div>
+
+			<hr style="border: 1px thin #A6A6A6; width: 100%;">
+
+
+			<div id="feedTableList">
+				<div id="feedTableListTo" style="display: none; margin: 20px 0 20px 0;" class="feedTableListTo">
+					<img id="userFeedStarScoreIMG">
+					<img id="feedAddUser">
+					<div id="feedContentDIV">
+						<span id="feedContent"></span>
+					</div>
+					<div id="feedFloatRight">
+						<label id="feedRegdate"></label>
+						<img id="feedDelete">
+					</div>
+				<hr style="border: 1px thin #A6A6A6; width: 100%; margin: 20px 0;">
+				</div>
+			</div>
+		</div>
+		
+		<a id="scrollFixed" href="#" title=Top>
+			<img src="images/scrollTop.png">
+		</a>
+		
+	</div>
+</body>
+</html>

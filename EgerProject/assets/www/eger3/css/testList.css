@@ -1,0 +1,132 @@
+@charset "utf-8";
+
+#page3 {
+	padding: 0%;
+	background-image: url('../images/egerbg2.png');
+	background-repeat: no-repeat;
+	background-position:center;
+	background-size: 100% 100%;
+}
+
+#headerPage3{
+	margin-bottom: 2%;
+	padding:10px 0px 0px 0px;
+}
+
+#headerSearchA {
+	border: 0px;
+	margin: 7px;
+}
+
+#headerSearch {
+	width: 17px;
+}
+
+#headerEger {
+	width: 40px;
+}
+
+#headerUserA {
+	border: 0px;
+	margin: 10px;
+}
+
+#headerUser {
+	width: 20px;
+}
+
+#topFooter {
+	border: 0px;
+}
+
+#storeNameSearchDIV {
+	margin-left: 3%;
+	width: 80%;
+}
+
+#storeNameSearchBTN {
+	margin-left: 3%;
+	width: 11%;
+	float: right;
+	margin: -55px 3% 0 0;
+}
+
+#storeNameSearch {
+	width: 55%;
+	margin: 10px 0 0 4%;
+}
+
+#storeListContent {
+	padding: 0%;
+	width:100%;
+}
+
+#aroundStoreListLeft, #aroundStoreListRight {
+	border: 1px solid #b3b3b3;
+	border-bottom: 3px solid #b3b3b3;
+	-webkit-border-radius: 3%;
+	width: 45%;
+	margin: 10px 0 10px 3%;
+	background-color: white;
+}
+
+#blackDIV {
+	-webkit-border-radius: 5% 5% 0 0;
+	position: absolute;
+	width: 44.7%;
+	height: 40px;
+}
+
+#aroundStoreLeftIMG, #aroundStoreRightIMG {
+	-webkit-border-radius: 3% 3% 0 0;
+	display: inline-block;
+	width: auto !important;
+	min-width: 100%;
+	max-width: 100%;
+	min-height: 150px;
+	max-height: 150px;
+}
+
+#dotDIV {
+	width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-align: center;
+}
+
+#arroundStoreLeftName, #arroundStoreRightName {
+	text-align: center;
+	font-weight: bolder;
+	font-size: 20px;
+	margin: 3%;
+	text-align: center;
+}
+
+#myStoreAllScoreDIV {
+	position: absolute;
+	color: white;
+	padding: 10px 0 0 5px;
+	text-align: center;
+	width:43%;
+}
+
+#mileageIMG, #mileageIMGRight {
+	width: 7%;
+}
+
+#stampIMG, #stampIMGRight {
+	width: 6%;
+}
+
+#couponIMG, #couponIMGRight {
+	width: 11%;
+}
+
+#topFooter{
+	border: 1px solid black;
+	}
+
+
+
+

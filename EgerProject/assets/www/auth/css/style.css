@@ -1,0 +1,55 @@
+@charset "utf-8";
+
+#cEmail, #cPassword {
+	height: 50px;
+}
+
+#btnSignin, #SignupSuccess {
+	font-weight: bolder;
+	color: #a73422;
+	border: 1px solid #CC723D;
+	background-color: #CC723D;
+	height: 50px;
+	-webkit-border-radius: 3%;
+	padding: 0px;
+}
+
+#mainfooter{
+	background-color: bisque;
+}
+#barcodeimg{
+	margin-left:25%;
+	
+}
+#barcodeimg2{
+	width:80%;
+	height:60%;
+}
+#mainImage{
+	margin: 10% 20%;
+	width:60%;
+	height:35%;
+}
+#mainTwobtn{
+	text-align:center;
+}
+#flip-mini{
+	float:left;
+}
+#headeTitle{
+	font:bold;
+	width:75%;
+	text-align: center;
+}
+#loginFormBTN{
+	margin-top: 3%;
+}
+#labelq{
+	width:30%;
+	float:left;
+	margin-top: 3%;
+}
+
+#signModal {
+	z-index: 999;
+}

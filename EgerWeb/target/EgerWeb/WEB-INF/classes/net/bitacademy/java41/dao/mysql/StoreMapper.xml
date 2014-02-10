@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.bitacademy.java41.dao.StoreDao">
+	
+	
+	<select id="getStore"
+			parameterType="map" 
+			resultType="Store">
+	    select SNO,SNAME,SPASSWORD,STEL,STIME,S_ADDRESS,S_DETAIL_ADDRESS,SPPATH,SCONTENT,CATENO,SREG_DATE
+	    from STORE 
+	    where SNO=#{sno} and SPASSWORD=#{password};
+	</select>
+	
+	
+	<select id="getCategorys" resultType="Category">
+	    select *
+		from CATEGORY;
+	</select>
+	
+	
+	<insert id="add" parameterType="Store">
+		insert into STORE(SNO,SNAME,SPASSWORD,STEL,STIME,S_ADDRESS,S_DETAIL_ADDRESS,SPPATH,SCONTENT,CATENO,SREG_DATE,XLOCATION,YLOCATION)
+		values(#{sno},#{sname},#{spassword},#{stel},#{stime},#{s_address},#{s_detail_address},#{sppath},#{scontent},#{cateno},now(),#{xlocation},#{ylocation})
+	</insert>
+	
+	
+	<insert id="addStoreMileage" parameterType="int">
+		insert into MILEAGE(SNO)
+		values(#{sno})
+	</insert>
+	
+	
+	<update id="passwordChange" parameterType="map">
+		update STORE
+		 set SPASSWORD=#{password}
+		where SNO=#{sno}
+	</update>
+	
+	<update id="update" parameterType="Store">
+		update STORE
+		 <set>
+			<if test="sname != null">SNAME=#{sname},</if>
+			<if test="stel != null">STEL=#{stel},</if>
+	 		<if test="stime != null">STIME=#{stime},</if>
+			<if test="s_address != null">S_ADDRESS=#{s_address},</if>
+			<if test="s_detail_address != null">S_DETAIL_ADDRESS=#{s_detail_address},</if>
+			<if test="sppath != null">SPPATH=#{sppath},</if>
+			<if test="scontent != null">SCONTENT=#{scontent},</if>
+			<if test="cateno != 0">CATENO=#{cateno}</if>
+		</set>
+		where SNO=#{sno}
+	</update>
+	
+</mapper> 

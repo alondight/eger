@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.bitacademy.java41.dao.FeedDao">
+    
+	<insert id="addFeed" parameterType="map">
+		insert into FEED(SNO,FCONTENT,FREG_DATE)
+		values(#{sno},#{fcontent},now())
+	</insert>
+	
+	<select id="feedList" parameterType="int" resultType="Feed">
+	    select FNO, SNO, FSCORE, BARCODE, FCONTENT, FREG_DATE
+		from FEED
+		where SNO=#{sno}
+		order by FNO desc;
+	</select>
+	
+	<delete id="removeFeed" parameterType="int">
+		delete from FEED
+		where FNO=#{fno}
+	</delete>
+	
+</mapper> 

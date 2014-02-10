@@ -1,0 +1,102 @@
+<!-- <?xml version="1.0" encoding="UTF-8"?> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<context:annotation-config />
+
+
+	<context:component-scan base-package="com.tda.institutional.iRebalEnt" />
+	<!-- @Transactional 애노테이션을 사용하기 위해 다음의 설정을 추가한다. -->
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<!-- 자동으로 등록할 컴포넌트가 있는 패키지를 지정한다. -->
+	<context:component-scan base-package="net.bitacademy.java41">
+		<context:exclude-filter type="regex"
+			expression="net.bitacademy.java41.test.*" />
+		<context:exclude-filter type="regex"
+			expression="net.bitacademy.java41.controls.*" />
+	</context:component-scan>
+
+	<!-- mybatis 객체 준비 -->
+	<context:property-placeholder
+		location="classpath:net/bitacademy/java41/dao/db.properties" />
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="${jdbc.driver}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
+
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+
+		<property name="typeAliasesPackage" value="net.bitacademy.java41.vo" />
+
+		<property name="mapperLocations"
+			value="classpath*:net/bitacademy/java41/dao/mysql/*Mapper.xml" />
+	</bean>
+
+	<!-- XxxMapper.xml 파일의 네임스페이스와 동일한 이름을 갖는 인터페이스를 지정된(ex: net.bitacadmey.java41.dao) 
+		패키지에서 찾아서 구현체를 자동으로 만들어 등록한다. * 주의 Mapper XML 파일의 SQL ID 값과 Java 인터페이스의 메서드 
+		이름이 일치해야 한다. -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="net.bitacademy.java41.dao" />
+	</bean>
+
+	
+	
+	
+	
+	<bean id="quartzServiceImpl" class="net.bitacademy.java41.services.QuartzServiceImpl" />
+	<bean name="quartz"
+		class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass" value="net.bitacademy.java41.services.QuartzService" />
+		<property name="Durability" value="true" />
+		<property name="jobDataAsMap">
+			<map>
+				<entry key="quartzServiceImpl" value-ref="quartzServiceImpl" />
+			</map>
+		</property>
+	</bean>
+	
+	<bean id="simpleTrigger"
+		class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
+		<property name="jobDetail" ref="quartz" />
+		<property name="startDelay" value="3000" />
+		<property name="repeatInterval" value="86400000" />
+	</bean>
+
+	<bean id='testScheduler'
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="simpleTrigger" />
+				<ref bean="cronTrigger" />
+			</list>
+		</property>
+	</bean>
+	<bean id="cronTrigger"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="quartz" />
+		<property name="cronExpression" value="0 0 12 * * ?" />
+	</bean>
+
+
+
+
+</beans>

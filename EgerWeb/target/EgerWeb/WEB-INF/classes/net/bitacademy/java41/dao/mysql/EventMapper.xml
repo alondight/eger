@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.bitacademy.java41.dao.EventDao">
+
+	<!-- 마일리지 -->
+	<select id="getCheckMileage" parameterType="int" resultType="Mileage">
+		select SNO, CASH_MILEAGE_RATE, CARD_MILEAGE_RATE
+		from MILEAGE
+		where
+		SNO=#{sno};
+	</select>
+	<update id="setMileage" parameterType="Mileage">
+		update MILEAGE
+		<set>
+			<if test="cash_mileAge_rate != null">CASH_MILEAGE_RATE=#{cash_mileAge_rate},</if>
+			<if test="card_mileAge_rate != null">CARD_MILEAGE_RATE=#{card_mileAge_rate}</if>
+		</set>
+		where SNO=#{sno}
+	</update>
+
+	<!-- 스탬프 -->
+	<select id="getCheckStamp" parameterType="int" resultType="Stamp">
+		select STAMPNO, SNO, STAMP_RATE, STAMP_CONTENT, STAMP_LEVEL,stamp_start,stamp_end
+		from STAMP
+		where SNO=#{sno}
+	</select>
+	<delete id="deleteStamp" parameterType="int">
+		delete from STAMP
+		where
+		SNO=#{sno}
+	</delete>
+	<insert id="setStampLevel1" parameterType="map">
+		INSERT INTO
+		STAMP(sno,stamp_rate,stamp_content,stamp_level,stamp_start,stamp_end)
+		VALUES(#{sno},#{stamp_Rate},#{stamp_Content},#{stamp_Level},#{stamp_start},#{stamp_end})
+	</insert>
+	<insert id="orderStampLevel2" parameterType="map">
+		insert into
+		STAMP(SNO,STAMP_RATE,STAMP_CONTENT,STAMP_LEVEL,STAMP_start,stamp_end)
+		values(#{sno},#{stamp_Rate},#{stamp_Content},#{stamp_Level},#{stamp_start},#{stamp_end})
+	</insert>
+	<insert id="serchStamp" parameterType="map">
+		insert into
+		STAMP(SNO,STAMP_RATE,STAMP_CONTENT,STAMP_LEVEL,STAMP_start,stamp_end)
+		values(#{sno},#{stamp_Rate},#{stamp_Content},#{stamp_Level},#{stamp_start},#{stamp_end})
+	</insert>
+	<!-- 쿠폰 -->
+	<select id="couponesList" parameterType="int" resultType="Event">
+		select COUPONE_NO,SNO,ECONTENT,ETIME,ECONDITION,E_REG_DATE
+		from EVENT
+		where SNO=#{sno} AND E_COUPONE_LEVEL=0
+	</select>
+	<insert id="setCoupone" parameterType="Event" useGeneratedKeys="true" keyProperty="coupone_no">
+		insert into
+		EVENT(SNO,ECONTENT,ETIME,ECONDITION,E_REG_DATE)
+		values(#{sno},#{econtent},#{etime},#{econdition},now())
+	</insert>
+	<delete id="deleteCoupone" parameterType="int">
+		delete from EVENT
+		where COUPONE_NO=#{coupone_no}
+	</delete>
+	<delete id="deleteClientCoupone" parameterType="int">
+		delete from CCOUPONE
+		where COUPONE_NO=#{coupone_no}
+	</delete>
+	<insert id="setStampCoupone" parameterType="Event" useGeneratedKeys="true" keyProperty="coupone_no">
+		insert into
+		EVENT(SNO,ECONTENT,ETIME,E_REG_DATE,E_COUPONE_LEVEL,ECONDITION)
+		values(#{sno},#{econtent},#{etime},now(),1,#{econdition})
+	</insert>
+	<delete id="deleteStampCoupone" parameterType="int">
+		delete from EVENT
+		where SNO=#{sno} AND E_COUPONE_LEVEL=1
+	</delete>
+	
+	<select id="selectStampCouponeNo" parameterType="int" resultType="int">
+		select COUPONE_NO
+		from EVENT
+		where SNO=#{sno} AND E_COUPONE_LEVEL
+	</select>
+	<select id="getCdeviceList"  resultType="String">
+		select CDEVICE
+		from CLIENT
+		where BARCODE in (select barcode from STORE_CLIENT where SCNO  in 
+		<foreach item="item" index="index" collection="list"
+      open="(" separator="," close=")">
+        #{item}
+  </foreach>
+		);
+	</select>
+	
+	
+	
+</mapper> 

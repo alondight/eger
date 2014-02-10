@@ -1,0 +1,128 @@
+#roomView h1{
+	color:black;
+}
+
+#roomView{
+	text-align: center;
+}
+
+#chatFooter{
+	bottom:0px;
+}
+
+#chatPage{
+	background-image: url("../images/back.jpg");
+}
+#contentWrap {
+	display: none;
+}
+#chatFooter{
+	display: none;
+}
+
+
+.me {
+	color: red;
+}
+
+.error {
+	color: red;
+}
+
+#sendingDiv,#receieveDiv {
+	width: 100%;
+}
+
+#sendingDivcontent {
+	float: right;
+	min-width: 51%;
+}
+#receieveDivContent{
+	float: left;
+	min-width: 51%;
+}
+
+#sendMesseging {
+	position: relative;
+	word-break: break-all;
+	background-image: url('../images/my_chat1.png');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	min-width: 25%;
+	max-width:60%;
+	padding: 10px 20px;
+	float: right;
+	z-index: 2;
+	margin-bottom: 20px;
+}
+
+#sendWhisperMesseging {
+	position: relative;
+	word-break: break-all;
+	background-image: url('../images/my_chat2.png');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	min-width: 25%;
+	max-width: 60%;
+	padding: 10px 20px;
+	float: right;
+	z-index: 2;
+	margin-bottom: 20px;
+}
+
+#sendTimeing {
+	background-image: url('../images/date.png');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	color:red;
+	text-align: center;
+	position: relative;
+	float: right;
+	margin-right: -20px;
+	width: 100px;
+	z-index: 1;
+}
+
+#receieveMesseging {
+	position: relative;
+	word-break: break-all;
+	background-image: url('../images/user_chat1.png');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	min-width: 25%;
+	max-width: 60%;
+	padding: 10px 20px;
+	float: left;
+	z-index: 2;
+	margin-bottom: 20px;
+}
+#receieveWhisperMesseging {
+	position: relative;
+	word-break: break-all;
+	background-image: url('../images/user_chat2.png');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	min-width: 25%;
+	max-width: 60%;
+	padding: 10px 20px;
+	float: left;
+	z-index: 2;
+	margin-bottom: 20px;
+}
+
+#receieveTimeing {
+	background-image: url('../images/date.png');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	color:red;
+	text-align: center;
+	position: relative;
+	float: left;
+	width: 100px;
+	z-index: 1;
+	margin-left: -20px;
+}
+#nickName{
+	color: red;
+	font-style: italic;
+}

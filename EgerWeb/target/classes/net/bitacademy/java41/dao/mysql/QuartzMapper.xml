@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.bitacademy.java41.dao.QuartzDao">
+ <delete id="deleteOldCcoupone">
+			delete from CCOUPONE
+			where
+			COUPONE_LEVEL=1 AND DATE_ADD(NOW(), INTERVAL -1 MONTH) > COUPONE_USEDATE;
+	</delete>
+	
+  <delete id="deleteOldEventCCoupone">
+			-- SET SQL_SAFE_UPDATES=0
+      		delete from CCOUPONE
+			where COUPONE_NO in (select COUPONE_NO from Event where E_COUPONE_LEVEL=0 AND now() > ETIME)
+</delete>
+ <delete id="deleteOldEvent">
+     		-- SET SQL_SAFE_UPDATES=0
+			delete from EVENT
+			where E_COUPONE_LEVEL=0 AND now() > ETIME;
+</delete>
+</mapper> 

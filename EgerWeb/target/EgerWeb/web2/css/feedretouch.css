@@ -1,0 +1,26 @@
+@CHARSET "UTF-8";
+
+/* feed.html 부분 */
+#tablewidth{width: 1000px;}
+.i1{width:50px;}
+.i2{width:900px;}
+.i3{width:100px;}
+
+._elCommentProfileImage{padding-left: 20px;}
+.feedAddBTN{padding-left: 20px;}
+
+/* feed.js부분 */
+.fil7{float: right;}
+.pc{float: left;}
+._countableComment{/* border: 5px solid yellow; */
+	border-bottom: 1px solid lightgrey;}
+#feedimgsize{width:40px; height:40px; padding-right: 20px;}
+
+#paddingwithimg{padding-left: 20px;}
+#comment1 #paddingwithimg2{padding-left: 15px;}
+#deletebutton{float: right;}
+#nick1{font-size: 80%;}
+#datecolorsize{color: grey; font-size: 80%; padding-left: 20px;}
+#starscore{color: orange;}
+#starimglocation{float: right; }
+#starimglocation img{height:17px; width:17px;}

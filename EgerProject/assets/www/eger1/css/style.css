@@ -1,0 +1,303 @@
+@charset "utf-8";
+
+#mainContent {
+	padding: 0%;
+	background-image: url('../images/egerbg2.png');
+	background-repeat: no-repeat;
+	background-position:center;
+	background-size: 100% 100%;
+}
+
+.boundary {
+	position: absolute;
+	border: 1px dotted;
+	background: #E4FECB;
+	background: rgba(127, 255, 0, 0.2);
+	margin: 0;
+	padding: 0;
+	z-index: -1;
+}
+
+#mainfooter {
+	background-color: bisque;
+}
+
+#flip-mini {
+	float: left;
+}
+
+#headeTitle {
+	font: bold;
+	width: 75%;
+	text-align: center;
+}
+
+.sponsorflip {
+	margin-top: 20px;
+	background-color: white;
+	height: 230px;
+}
+
+#swipeTopAction {
+	margin-top:5%;
+	width: 100%;
+	height: 210px;
+	z-index: 999;
+}
+
+.sponsorData {
+	display: none;
+}
+
+#mainClickImgDiv {
+	margin-top:5%;
+	margin-bottom:5%;
+	position: relative;
+	width: 100%;
+	height: 200px;
+	-webkit-border-radius: 5%;
+}
+
+#mainClickImgDiv img {
+	height: 100%;
+	width: 80%;
+	position: absolute;
+	top: 0;
+	left: 10%;
+	z-index: 8;
+	opacity: 0.0;
+}
+
+#mainClickImgDiv img.active {
+	z-index: 10;
+	opacity: 1.0;
+}
+
+#mainClickImgDiv img.last-active {
+	z-index: 9;
+}
+
+
+
+#slidearrowshow {
+	position: relative;
+	height: 65px;
+}
+
+#slidearrowshow img {
+	position: absolute;
+	margin-left: 45%;
+	width: 10%;
+	height: 70px;
+	top: 0;
+	left: 0;
+	z-index: 8;
+	opacity: 0.0;
+}
+
+#slidearrowshow img.active {
+	z-index: 10;
+	opacity: 1.0;
+}
+
+#slidearrowshow img.last-active {
+	z-index: 9;
+}
+
+.dotlinehover{
+ 	background-image: url('../images/hoverlogoCard.png');
+	background-repeat: no-repeat;
+	background-position:center;
+	background-size: 100% 100%;
+}
+
+#storeListContent {
+	margin-top:10%;
+	padding: 0%;
+	width: 100%;
+}
+
+#aroundStoreListLeft {
+	border: 1px solid #EAEAEA;
+	-webkit-border-radius: 3%;
+	text-align: center;
+	width: 45%;
+	margin: 10px 0px 10px 3%;
+	background-color: white;
+}
+
+#MainDialogHeader{
+	margin-top: 10%;
+}
+
+
+#aroundStoreListRight {
+	border: 1px solid #EAEAEA;
+	-webkit-border-radius: 3%;
+	text-align: center;
+	width: 45%;
+	margin: 10px 0 10px 3%;
+	background-color: white;
+}
+
+#aroundStoreLeftIMG {
+	-webkit-border-radius: 3% 3% 0 0;
+	display: inline-block;
+	width: auto !important;
+	min-width: 100%;
+	max-width: 100%;
+	min-height: 150px;
+	max-height: 150px;
+	/* 	height: auto !important; */
+}
+
+#aroundStoreRightIMG {
+	-webkit-border-radius: 3% 3% 0 0;
+	display: inline-block;
+	width: auto !important;
+	min-width: 100%;
+	max-width: 100%;
+	min-height: 150px;
+	max-height: 150px;
+	/* 	height: auto !important; */
+}
+
+#arroundStoreLeftName {
+	text-align: center;
+	font-weight: bolder;
+	font-size: 20px;
+	color: white;
+	margin: 3%;
+	width: 140px;
+	position: absolute;
+}
+
+#arroundStoreRightName {
+	text-align: center;
+	font-weight: bolder;
+	font-size: 20px;
+	color: white;
+	margin: 3%;
+	width: 140px;
+	position: absolute;
+}
+
+#arroundStoreLeftIntro {
+	font-size: 15px;
+	margin: 1%;
+	text-align: center;
+}
+
+#arroundStoreRightIntro {
+	font-size: 15px;
+	margin: 1%;
+	text-align: center;
+}
+
+#arroundStoreRightEtime {
+	font-size: 13px;
+	margin: 8%;
+}
+
+#arroundStoreLeftEtime {
+	font-size: 13px;
+	margin: 8%;
+}
+
+#LeftstoreMemberAndFeed {
+	text-align: center;
+	font-size: 13px;
+}
+
+#RightstoreMemberAndFeed {
+	text-align: center;
+	font-size: 13px;
+}
+
+#storeNameSearchDIV {
+	margin-left: 3%;
+	width: 80%;
+}
+
+#storeNameSearchBTN {
+	margin-left: 3%;
+	width: 11%;
+	float: right;
+	margin: -55px 3% 0 0;
+}
+
+#stampIMGRight,#stampIMG {
+	width: 8%;
+}
+
+#mileageIMGRight,#mileageIMG {
+	width: 10%;
+}
+
+#headerPage3 {
+	margin-bottom: 2%;
+}
+
+#mask {
+	position: absolute;
+	left: 0;
+	top: 0;
+	background-color: #000;
+	display: none;
+	z-index: 11;
+}
+
+
+#dragModal {
+	position: absolute;
+	z-index: 999;
+	background-color: white;
+	top: -250px;
+	left: -40px;
+	min-width: 115%;
+	-webkit-border-radius: 2%;
+}
+
+#egercardimages {
+	width: 80%;
+	height:95%;
+}
+
+#cardcrop {
+	position: absolute;
+	width: 60%;
+	padding: 10px 0 0 0;
+	background-color: white;
+	margin: 0 20%;
+	min-height: 100px;
+	max-height: 100px;
+	top: 60%;
+	clip: rect(0, 1000px, 50px, 0);
+}
+
+#barcodeimg2 {
+	width: 100%;
+	height: 100%;
+}
+
+#barcodeno {
+	position: absolute;
+	top: 82%;
+	left: 28%;
+	font-size: 20px;
+	font-weight: bolder;
+}
+
+
+#overDot {
+	margin-top:100px;
+	width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+#modalClose {
+	float: right;
+	width:40px;
+}

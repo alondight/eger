@@ -1,0 +1,236 @@
+<div id="signup-form">
+	<!--BEGIN #subscribe-inner -->
+	<div id="signup-inner">
+		<div class="clearfix" id="header">
+			<h1>
+				Store Info update to Eger. <img id="signup-icon"
+					src="images/signup.png" alt="" style="float: right;" /> <br>
+				Somebody cares for you!
+			</h1>
+		</div>
+		<p>이거 서비스의 사업자 회원정보 변경화면입니다. 정보를 신중하게 작성하시고 변경해주세요.</p>
+		<form name="serverInfoForm" id="serverInfoForm"
+			enctype="multipart/form-data" style="background-color: white;">
+			<table style="width: 100%; padding: 0px auto;">
+				<tr>
+					<td><h5>
+							<label for="name">사업자번호 *</label>
+						</h5></td>
+					<td><p>
+							<input id="StoreNo" type="text" name="StoreNo" value="" readonly />
+						</p></td>
+				</tr>
+				<tr>
+					<td><h5>
+							<label for="name">상호명 *</label>
+						</h5></td>
+					<td><p>
+							<input id="StoreName" type="text" name="StoreName" value="" /></td>
+				</tr>
+				<tr>
+					<td><h5>
+							<label for="name">암호 *</label>
+						</h5></td>
+					<td><p>
+							<input id="sPassword" type="password" name="sPassword" value=""
+								placeholder="최소 6자 ~ 최대 12자" /> <a href="#"
+								data-display="sPasswordChange" id="changePassword"
+								data-animation="fade" data-animationspeed="200"
+								data-closeBGclick="true">
+								<span class="passwordChangeBTN" style="font-size: 20px;">
+								<img src="images/back32.png">
+								<span style="font-size: 13px; margin-left: -9px;">암호변경</span>
+								</span>
+								</a>
+						</p></td>
+				</tr>
+				<tr>
+					<td><h5>
+							<label for="name">연락처 *</label>
+						</h5></td>
+					<td><p>
+							<input id="StoreTel" type="text" name="StoreTel" value="" />
+						</p></td>
+				</tr>
+				<tr>
+					<td><h5>
+							<label for="name">기본주소 *</label>
+						</h5></td>
+					<td><p>
+							<input readonly id="sAddress" type="text" name="sAddress"
+								value="" /> <a href="#" data-display="signupPost"
+								id="postSearch" data-animation="fade" data-animationspeed="200"
+								data-closeBGclick="true"> <img src="images/back32.png"
+								class="addresssearchBTN"
+								style="margin-left: 5px; margin-bottom: 5px;">
+							</a>
+						</p></td>
+				</tr>
+				<tr>
+					<td><h5>
+							<label for="name">상세주소 *</label>
+						</h5></td>
+					<td><p>
+							<input id="sDetail_Address" type="text" name="sDetail_Address"
+								value="" />
+						</p></td>
+				</tr>
+				<tr>
+					<td><h5>
+							<label for="name">영업시간 *</label>
+						</h5></td>
+					<td><p>
+							<input id="sTime" type="text" name="sTime" value="" />
+						</p></td>
+				</tr>
+				<tr>
+					<td><h5>
+							<label for="name">가게 대표사진*</label>
+						</h5></td>
+					<td>
+						<div id="respond" style="margin: 0 0 0 0;">
+							<p class="form-submit" style="margin: 0 0 0 0;">
+								<input data-display="signupUpload" value="사진변경"
+									data-animation="fade" data-animationspeed="200"
+									data-closeBGclick="true" name="submit" id="submit"
+									style="margin: 0 0 0 0; float: left;" type="button" />
+							</p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td><h5>
+							<label for="name">카테고리*</label>
+						</h5></td>
+					<td><p>
+							<input readonly id="sCategory" type="text" name="sCategory"
+								value="" /><a href="#" cate-display="signupCate"
+								id="cateSearch" data-animation="fade" data-animationspeed="200"
+								data-closeBGclick="true"> <img src="images/back32.png"
+								class="categorysearchBTN"
+								style="margin-left: 5px; margin-bottom: 5px;">
+
+							</a>
+						</p></td>
+				</tr>
+				<tr>
+					<td><h5>
+							<label for="name">상호 소개하기*</label>
+						</h5></td>
+					<td><p>
+							<textarea name="profile" id="sProfile" cols="30" rows="10"></textarea>
+						</p></td>
+				</tr>
+			</table>
+
+
+			<!--  JQUERY 파일 업로드 -->
+			<div id="signupUpload" class="portBox">
+				<div class="project">
+					<div class="project-info" style="font-size: 10px;">
+						<h3>가게사진 변경</h3>
+						<div class="upload-preview">
+							<img style="width: 300px; height: 300px; border: 1px solid #d8d8d8;"
+								src="images/basestoreIMG.jpg" />
+						</div>
+						<div id="respond" style="margin: 0 0 0 0;">
+							<input class="filePreview" name="agentInstallFile" type="file"
+							 style="border: none;">
+							<input id="selectPhotoSignup" type="button" value="변경"
+							style="float: right;">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="progress" style="width: 100%;">
+				<div class="bar"></div>
+				<div class="percent">0%</div>
+			</div>
+			<p>
+				<button id="changeSignupBtn" type="button">Change</button>
+			</p>
+		</form>
+		<div id="required"></div>
+	</div>
+</div>
+
+
+<!-- dialog modal -->
+<div id="dialog-modal" class="no-close ui-dialog-titlebar-close"
+	style="display: none;">
+	<img style="width: 100px; height: 100px; border: 1px solid #d8d8d8; margin: 20px 0 10px 100px;"
+								src="images/redstoreicon.png" />
+	<h5 style="text-align: center;">
+		상점정보가 정상적으로 변경되었습니다.
+	</h5>
+	<h4 style="text-align: center; color:black; font-weight: bolder;">
+		메인화면으로 이동합니다.
+	</h4>
+</div>
+
+
+<!--  password 변경 -->
+<div id="sPasswordChange" class="portBox">
+	<div class="project">
+		<div class="project-info" style="font-size: 10px;">
+			<h3>Password 변경</h3>
+			<p>
+				<label for="name">Existing Password*</label> <input
+					id="existingPassword" type="password" style="width: 100%;">
+			</p>
+			<p>
+				<label for="name">New Password*</label> <input id="newPassword"
+					type="password" style="width: 100%;">
+			</p>
+			<p>
+				<label for="name">Confirm Password*</label> <input
+					id="confirmPassword" type="password" style="width: 100%;">
+			</p>
+			<div id="respond" style="margin: 0 0 0 0;">
+			<input id="changPasswordBtn" type="button" value="변경"
+			style="margin: 0 0 0 0; float: right; width: 80px;
+			margin: 10px 0 20px 0">
+				</div>
+		</div>
+	</div>
+</div>
+
+
+<!--  카테고리 찾기 -->
+<div id="signupCate" class="portBox">
+	<div class="project">
+		<div class="project-info" style="font-size: 10px;">
+			<h3>카테고리 설정</h3>
+			<table id="cateSearchTable" style="width: 100%; margin-bottom: 10px;">
+			</table>
+		</div>
+	</div>
+</div>
+
+
+<!--  modal 주소찾기  -->
+<div id="signupPost" class="portBox" style="width: 600px;">
+	<div class="project">
+		<div class="project-info" style="font-size: 10px;">
+			<h3>우편번호 찾기</h3>
+			<div style="float: right; margin: 0 0 10px 0;">
+				<input id="postQuery" type="text"> <img
+					src="images/back32.png" class="addresssearchBTN" id="signupcheck"
+					style="margin-bottom: -8px;">
+			</div>
+			<table id="postSearchTable" style="width: 100%; margin-bottom: 10px;">
+				<tr>
+					<th style="width: 30%; text-align: center;">우편번호</th>
+					<th style="width: 70%; text-align: center;">주소</th>
+				</tr>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="js/portBox.slimscroll.min.js"></script>
+<link href="css/portBox.css" rel="stylesheet" />
+<script src="store.js"></script>

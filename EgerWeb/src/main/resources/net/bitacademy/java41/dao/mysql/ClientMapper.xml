@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.bitacademy.java41.dao.ClientDao">
+	<select id="getClient" parameterType="map" resultType="Client">
+		select
+		CEMAIL,CPASSWORD,BARCODE,CDEVICE
+		from CLIENT
+		where CEMAIL=#{email} and
+		CPASSWORD=#{password};
+	</select>
+
+	<insert id="add" parameterType="Client">
+		insert into
+		CLIENT(BARCODE,CPASSWORD,CEMAIL,CREG_DATE,CDEVICE)
+		values(#{barcode},#{cpassword},#{cemail},now(),#{cdevice})
+	</insert>
+
+	<select id="getStoreClient" parameterType="String" resultType="Store">
+		select a.SNO,b.S_ADDRESS,b.S_DETAIL_ADDRESS
+		from STORE_CLIENT a, STORE
+		b
+		where a.SNO=b.SNO AND a.BARCODE=#{barcode};
+	</select>
+
+	<select id="signUpcheck" parameterType="String" resultType="String">
+		select CEMAIL
+		from CLIENT
+		where CEMAIL =#{cemail};
+	</select>
+
+	<update id="clientPasswordChange" parameterType="map">
+		UPDATE CLIENT SET CPASSWORD=#{password}
+		WHERE BARCODE =
+		(SELECT * FROM (SELECT BARCODE FROM CLIENT WHERE CEMAIL=#{email}) AS TEMP);
+	</update>
+	<update id="cPasswordChange" parameterType="map">
+		update CLIENT
+		 set CPASSWORD=#{password}
+		where BARCODE=#{barcode}
+	</update>
+	<update id="setCDevice" parameterType="map">
+		UPDATE CLIENT 
+		SET CDEVICE=#{regid}
+		WHERE BARCODE =#{barcode}
+	</update>
+</mapper> 

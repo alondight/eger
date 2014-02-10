@@ -1,0 +1,206 @@
+<!-- SLOGAN -->
+<div class="hentry hentry-post group blog-big">
+	<div id="slogan" class="inner">
+		<h1 class="only" id="who">My Store Event</h1>
+	</div>
+	<!-- END SLOGAN -->
+
+	<!-- START PRIMARY -->
+	<div id="primary" class="hentry group wrapper-content">
+		<span class="special-font" style="font-size: 16px; font-weight: bolder;">
+		마일리지 적립률 등록</span>
+		<span style="font-size: 10.5px; color: red; float: right;">
+		* 적립률 이벤트를 사용하지 않으시려면, 두 항목 모두 <em>'0'</em>으로 설정하고 <em>"마일리지등록"</em> 버튼을 눌러주세요.
+		</span>
+		
+		
+		<!-- START MILEAGE TABLE -->
+		<table style="width: 100%; margin-bottom: 0px;"
+			class="short-table white">
+			<thead>
+				<tr>
+					<th style="width: 20%">사용여부</th>
+					<th style="width: 40%">현금적립률</th>
+					<th style="width: 40%">카드적립률</th>
+				</tr>
+			</thead>
+			<tbody id="mileage">
+				<tr class="mileagecheckbefore">
+					<td><input type="checkbox" name="mileagecheck"
+						id="mileagecheck"></td>
+					<td><input type="text" class="textbox" name="textbox1"
+						id="cashmileage" style="width: 20px;" placeholder="0">%</td>
+					<td><input type="text" class="textbox" name="textbox2"
+						id="cardmileage" style="width: 20px;" placeholder="0">%</td>
+				</tr>
+				<tr class="mileagecheckafter">
+
+				</tr>
+			</tbody>
+		</table>
+
+		<div id="respond">
+			<input name="button" disabled="disabled" type="submit" id="submit"
+				class="lockmileageadd" value="마일리지등록" /> <input name="button"
+				type="submit" id="submit" class="mileageadd" value="마일리지등록" />
+		</div>
+		<br> <br> <br> <br>
+		<!-- END TABLE -->
+
+		
+		
+		
+		<!-- Stamp -->
+		<span class="special-font" style="font-size: 16px; font-weight: bolder;">
+		스탬프 등록</span>
+		<span style="font-size: 10.5px; color: red; float: right;">
+		* 스탬프 이벤트를 사용하지 않으시려면, 선택했던 항목의 개수를 <em>'0'</em>으로 설정하고 <em>"스탬프등록"</em> 버튼을 눌러주세요.
+		</span>
+		
+		
+		<!-- START STAMP TABLE -->
+		<table style="width: 100%" class="short-table white" id="radioCount">
+			<thead>
+				<tr>
+					<th style="width: 14%">사용여부</th>
+					<th style="width: 33%">설명(예)</th>
+					<th style="width: 9%">개수</th>
+					<th style="width: 19%">혜택</th>
+					<th style="width: 25%">이벤트기간</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input type="radio" name="checkstamp" id="checkstamp1"
+						class="stampLevel1" value="stampLevel1"></td>
+					<td>쿠폰 사용조건을 한 가지만 제공<br>(개수=10, 혜택=10,000원 할인권)
+					<td><input type="text" class="firststampNo" id="firststampNo"
+						style="width: 20px;" placeholder="0">개</td>
+					<td><input type="text" class="firststampContent"
+						id="firststampContent" style="width: 90px;"placeholder="쿠폰내용입력"> 제공</td>
+					<td><input type="text" class="firststampdate" placeholder="양식없음"
+						id="firststampdatestart" style="width: 120px; font-size: 12px;"> 부터<br>
+						<input type="text" class="firststampdate" id="firststampdateend"
+						placeholder="양식없음" style="width: 120px; font-size: 12px;"> 까지</td>
+				</tr>
+				<tr>
+					<td rowspan="3"><input type="radio" name="checkstamp"
+						id="checkstamp2" class="stampLevel2" value="stampLevel2"></td>
+					<td rowspan="3">쿠폰 사용조건을 순차적으로 제공<br>(5개,8개,10개 혜택 모두제공)<br>
+						<em>최대 3개 입력가능</em></td>
+					<td><input type="text" class="secondstampNo"
+						id="secondstampNo1" style="width: 20px;" placeholder="0">개<br></td>
+					<td><input type="text" class="secondstampContent"
+						id="secondstampContent1" style="width: 90px;"placeholder="쿠폰내용입력"> 제공<br></td>
+					<td><input type="text" class="secondstampdate" placeholder="양식없음"
+						id="secondstampdatestart1" style="width: 120px; font-size: 12px;"> 부터<br>
+						<input type="text" class="secondstampdate" placeholder="양식없음"
+						id="secondstampdateend1" style="width: 120px; font-size: 12px;"> 까지</td>
+				</tr>
+				<tr>
+					<td><input type="text" class="secondstampNo"
+						id="secondstampNo2" style="width: 20px;" placeholder="0">개<br></td>
+					<td><input type="text" class="secondstampContent"
+						id="secondstampContent2" style="width: 90px;" placeholder="쿠폰내용입력"> 제공<br>
+					<td><input type="text" class="secondstampdate" placeholder="양식없음"
+						id="secondstampdatestart2" style="width: 120px; font-size: 12px;"> 부터<br>
+						<input type="text" class="secondstampdate" placeholder="양식없음"
+						id="secondstampdateend2" style="width: 120px; font-size: 12px;"> 까지</td>
+				</tr>
+				<tr>
+					<td><input type="text" class="secondstampNo"
+						id="secondstampNo3" style="width: 20px;" placeholder="0">개<br></td>
+					<td><input type="text" class="secondstampContent" placeholder="쿠폰내용입력"
+						id="secondstampContent3" style="width: 90px;"> 제공<br></td>
+					<td><input type="text" class="secondstampdate" placeholder="양식없음"
+						id="secondstampdatestart3" style="width: 120px; font-size: 12px;"> 부터<br>
+						<input type="text" class="secondstampdate" placeholder="양식없음"
+						id="secondstampdateend3" style="width: 120px; font-size: 12px;"> 까지</td>
+				</tr>
+
+				<tr>
+					<td rowspan="3"><input type="radio" name="checkstamp"
+						id="checkstamp3" class="stampLevel3" value="stampLevel3"></td>
+					<td rowspan="3">쿠폰 사용조건을 선택하도록 제공<br>(5개,10개,20개 중 선택으로
+						혜택제공)<br> <em>최대 3개 입력가능</em></td>
+					<td><input type="text" class="thirdstampNo" id="thirdstampNo1"
+						style="width: 20px;" placeholder="0">개<br></td>
+					<td><input type="text" class="thirdstampContent" placeholder="쿠폰내용입력"
+						id="thirdstampContent1" style="width: 90px;"> 제공<br></td>
+					<td><input type="text" class="thirdstampdate" placeholder="양식없음"
+						id="thirdstampstartdate1" style="width: 120px; font-size: 12px;"> 부터<br>
+						<input type="text" class="thirdstampdate" placeholder="양식없음"
+						id="thirdstampenddate1" style="width: 120px; font-size: 12px;"> 까지</td>
+				</tr>
+				<tr>
+					<td><input type="text" class="thirdstampNo" id="thirdstampNo2"
+						style="width: 20px;" placeholder="0">개<br></td>
+					<td><input type="text" class="thirdstampContent" placeholder="쿠폰내용입력"
+						id="thirdstampContent2" style="width: 90px;"> 제공<br></td>
+					<td><input type="text" class="thirdstampdate" placeholder="양식없음"
+						id="thirdstampstartdate2" style="width: 120px; font-size: 12px;"> 부터<br>
+						<input type="text" class="thirdstampdate" placeholder="양식없음"
+						id="thirdstampenddate2" style="width: 120px; font-size: 12px;"> 까지</td>
+				</tr>
+				<tr>
+					<td><input type="text" class="thirdstampNo" id="thirdstampNo3"
+						style="width: 20px;" placeholder="0">개<br></td>
+					<td><input type="text" class="thirdstampContent"
+						id="thirdstampContent3" style="width: 90px;" placeholder="쿠폰내용입력"> 제공<br></td>
+					<td><input type="text" class="thirdstampdate" placeholder="양식없음"
+						id="thirdstampstartdate3" style="width: 120px; font-size: 12px;"> 부터<br>
+						<input type="text" class="thirdstampdate" placeholder="양식없음"
+						id="thirdstampenddate3" style="width: 120px; font-size: 12px;"> 까지</td>
+				</tr>
+			</tbody>
+		</table>
+		<div id="respond">
+			<input type="submit" name="button" id="submit" class="dontChoose"
+				value="스탬프등록" readonly="readonly" /> <input type="submit"
+				name="button" id="submit" class="Level1Choose" value="스탬프등록" /> <input
+				type="submit" name="button" id="submit" class="Level2Choose"
+				value="스탬프등록" /> <input type="submit" name="button" id="submit"
+				class="Level3Choose" value="스탬프등록" />
+		</div>
+		<br> <br> <br> <br>
+		<!-- END TABLE -->
+
+		<span class="special-font" style="font-size: 16px; font-weight: bolder;">
+		쿠폰 등록</span>
+		<span style="font-size: 10.5px; color: red; float: right;">
+		<span style="color: black;">* 쿠폰 사용기간의 시작일은 쿠폰을 등록하는 날을 기준으로 자동 설정됩니다. // </span>
+		* 쿠폰 이벤트를 사용하지 않으시려면, <em>"휴지통"</em> 버튼을 눌러주세요.
+		</span>
+
+
+
+		<table id="coupones" style="width: 100%" class="short-table white">
+			<tr>
+				<th style="width: 25%">내용</th>
+				<th style="width: 25%">조건</th>
+				<th style="width: 30%">사용기간</th>
+				<th style="width: 20%">삭제</th>
+			</tr>
+			<tbody id="couponesbody" class="couponesbodycss">
+
+			</tbody>
+			<tbody>
+				<tr>
+					<td><input type="text" id="couponeContent"
+						style="width: 150px;" placeholder="예) 만원 할인권"></td>
+					<td><input type="text" id="couponeCondition"
+						style="width: 150px;" placeholder="예) 5만원 이상 결재시"></td>
+					<td>만료일: <input type="date" id="couponeEndDate" style="width: 120px;"></td>
+					<td><div id="respond"style="margin: 0 0 0 0;">
+						<input name="button" type="button" class="couponeadd" id="submit"
+						value="저장하기" style="margin: 0 0 0 0;"/>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<!-- END TABLE -->
+	</div>
+	<!-- END CONTENT -->
+</div>
+<script src="event.js"></script>

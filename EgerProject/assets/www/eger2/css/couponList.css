@@ -1,0 +1,125 @@
+@charset "utf-8";
+
+#page2 {
+	padding: 0%;
+	background-image: url('../images/egerbg2.png');
+	background-repeat: no-repeat;
+	background-position:center;
+	background-size: 100% 100%;
+}
+
+
+#usedORnewCoupon {
+	width: 50%;
+	margin: 20px 0 20px 25%;
+}
+
+#couponListContent{
+	padding: 0%;
+}
+
+#couponCount {
+	font-size: 30px;
+	margin: 10px 0px 5px 30px;
+}
+
+#couponCountIcon, #usedCouponCountIcon {
+	width: 7%;
+	margin-left: -3%;
+}
+
+#CouponeSize {
+	color: red;
+	font-weight: bolder;
+}
+
+#aroundStoreListLeft, #aroundStoreListRight {
+	-webkit-border-radius: 3%;
+	max-width: 45%;
+	margin: 0 0 10px 3%;
+	background-image:url(../images/coupon_1.png);
+	background-repeat: no-repeat;
+	background-position:center;
+	background-size: 100% 100%;
+	border-color:white;
+}
+
+#btnCouponLeft, #btnCouponRight {
+	border: 0px;
+}
+
+#storeinfoview {
+	font-size:75%;
+	float:right;
+	margin-right:3%;
+	margin-top:3%;
+	font-weight:bold;
+	color:darkblue;
+}
+
+#couponNameLeft, #couponNameRight{
+	font-size: 20px;
+	margin: 15px 20%;
+	font-weight: bolder;
+}
+
+#couponListStoreNameLeft, #couponListStoreNameRight {
+	font-size: 18px;
+	padding: 15px 20% 0px;
+	font-weight:bold;
+}
+
+#couponListStoreAddressLeft, #couponListStoreAddressRight {
+	font-size: 15px;
+	padding: 15px 20% 0px;
+	font-weight:bold;
+}
+
+#dotDIV {
+	margin-left:2.5%;
+	width: 95%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+#couponeExpiryDateLeft, #couponeExpiryDateRight {
+	font-size: 12px;
+	margin: 0 15%;
+	color:red;
+	font-weight:bold;
+}
+
+#couponUsedListContent{
+	padding: 0%;
+}
+
+#usedCouponCount {
+	font-size: 30px;
+	margin: 10px 0px 5px 30px;
+}
+
+#usedCouponeSize {
+	color: #BDBDBD;
+	font-weight: bolder;
+}
+
+#UsedCouponeListDIV {
+	margin:0 5%;
+	width: 90%;
+	text-align: center;
+}
+
+#UsedCouponeListDIV td {
+	padding: 10px 0;
+	border-bottom: 1px dotted #A6A6A6;
+}
+
+#usedCouponListLine {
+	border: 1px thin #A6A6A6;
+	width: 100%;
+}
+
+#topFooterNAV {
+	 border: 0px;
+}

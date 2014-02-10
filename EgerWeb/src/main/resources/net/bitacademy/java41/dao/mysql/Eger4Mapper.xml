@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.bitacademy.java41.dao.Eger4Dao">
+
+	<select id="categoryselect" parameterType="int" resultType="Store">
+		SELECT
+		S_ADDRESS, S_DETAIL_ADDRESS, SNAME, STIME, SNO, SPPATH, STEL,
+		SCONTENT,XLOCATION,YLOCATION
+		FROM STORE s, CATEGORY c
+		WHERE s.cateno =
+		c.cateno
+		AND
+		s.cateno = #{cateno}
+	</select>
+
+	<select id="zoneselect" parameterType="String" resultType="Store">
+		SELECT
+		S_ADDRESS, S_DETAIL_ADDRESS, SNAME, STIME, SNO, SPPATH, STEL,
+		SCONTENT,XLOCATION,YLOCATION
+		FROM STORE
+		WHERE s_address LIKE #{zoneName}
+	</select>
+
+	<select id="categoryAndZoneSelect" parameterType="map"
+		resultType="Store">
+		SELECT
+		S_ADDRESS, S_DETAIL_ADDRESS, SNAME, STIME, SNO,
+		SPPATH, STEL, SCONTENT,XLOCATION,YLOCATION
+		FROM STORE s, CATEGORY c
+		WHERE s.s_address LIKE #{zoneName} AND s.cateNo =
+		c.cateNo AND
+		s.cateNo
+		= #{cateno}
+	</select>
+
+	<select id="storesearch" parameterType="String" resultType="Store">
+		SELECT
+		S_ADDRESS, S_DETAIL_ADDRESS, SNAME, STIME, SNO, SPPATH, STEL,
+		SCONTENT,XLOCATION,YLOCATION
+		FROM STORE
+		WHERE sname LIKE #{inputsname};
+	</select>
+	<select id="todayAddStoreList" resultType="Store">
+		SELECT S_ADDRESS,
+		S_DETAIL_ADDRESS, SNAME, STIME, SNO,
+		SPPATH, STEL, SCONTENT,XLOCATION,YLOCATION
+		from STORE
+		order by SREG_DATE desc
+		limit 0, 15;
+	</select>
+	<select id="list" resultType="Store">
+		SELECT
+		S_ADDRESS, S_DETAIL_ADDRESS,
+		SNAME, STIME, SNO, SPPATH, STEL, SCONTENT,XLOCATION,YLOCATION
+		FROM
+		STORE;
+	</select>
+	<select id="feedCount" resultType="int" parameterType="int"><![CDATA[
+	    select count(*)
+	    from FEED
+	    where SNO = #{sno}
+	]]></select>
+	<select id="memberCount" resultType="int" parameterType="int"><![CDATA[
+	    select count(*)
+	    from STORE_CLIENT
+	    where SNO = #{sno}
+	]]></select>
+	<select id="storeStarScore" resultType="String" parameterType="int"><![CDATA[
+		select avg(fscore)
+	    from FEED
+	    where SNO = #{sno} and FSCORE > 0
+	]]>
+	</select>
+	<select id="mileageRate" resultType="Mileage" parameterType="int">
+		select CASH_MILEAGE_RATE, CARD_MILEAGE_RATE
+		from MILEAGE
+		where SNO = #{sno}
+	</select>
+
+	<select id="stampRate" resultType="Stamp" parameterType="int">
+		select STAMP_RATE,STAMP_CONTENT,STAMP_LEVEL,STAMP_START,STAMP_END
+		from STAMP
+		where SNO = #{sno}
+	</select>
+
+	<select id="view" parameterType="int" resultType="Store">
+		SELECT
+		S_ADDRESS, S_DETAIL_ADDRESS, SNAME, STIME, SNO, SPPATH, STEL,
+		SCONTENT,XLOCATION,YLOCATION
+		FROM STORE
+		WHERE SNO=#{sno};
+	</select>
+	<select id="storeViewEvent" parameterType="int" resultType="Event">
+		SELECT
+		COUPONE_NO,SNO,ECONTENT,ETIME,ECONDITION,E_REG_DATE,E_COUPONE_LEVEL
+		FROM EVENT
+		WHERE SNO=#{sno};
+	</select>
+	<select id="feedList" parameterType="int" resultType="Feed">
+		SELECT
+		fscore, barcode, fcontent, freg_date, sno, fno, fscore
+		FROM FEED
+		WHERE
+		sno = #{sno}
+		ORDER BY fno desc;
+	</select>
+	<select id="feedscore" parameterType="int" resultType="Feed">
+		select
+		FSCORE
+		from FEED
+		where FSCORE > 0 and SNO=#{sno};
+	</select>
+
+	<select id="storecheck" parameterType="map" resultType="StoreClient">
+		SELECT
+		sno, barcode
+		FROM STORE_CLIENT
+		WHERE sno=#{sno} AND barcode=#{barcode};
+	</select>
+	<insert id="storeadd" parameterType="map">
+		INSERT INTO
+		STORE_CLIENT(sno, barcode, sc_reg_date, stackstamp, stackmileage)
+		VALUES (#{sno},#{barcode},now(),#{stackstamp},#{stackmileage})
+	</insert>
+	<insert id="addFeed" parameterType="map">
+		INSERT INTO
+		FEED(sno,barcode,fscore,fcontent,freg_date)
+		VALUES(#{sno},#{barcode},#{fscore},#{fcontent},now())
+	</insert>
+	<delete id="feeddelete" parameterType="int">
+		delete from FEED
+		where
+		FNO=#{fno}
+	</delete>
+	<select id="storeMemberCheck" parameterType="map" resultType="StoreClient">
+		select c.BARCODE
+		from STORE_CLIENT sc, CLIENT c
+		where sc.BARCODE =
+		c.BARCODE and sc.SNO=#{sno} and c.BARCODE=#{barcode};
+	</select>
+	<select id="storeCouponCheck" parameterType="int" resultType="int">
+		select COUPONE_NO
+		from EVENT
+		where SNO=#{sno} and E_COUPONE_LEVEL=0;
+	</select>
+
+
+	<select id="scnoCheck" parameterType="map" resultType="int">
+		select
+		SCNO
+		from STORE_CLIENT
+		where SNO=#{sno} and BARCODE=#{barcode}
+	</select>
+
+	<insert id="autoCouponAdd" parameterType="map">
+		INSERT INTO CCOUPONE(SCNO, COUPONE_NO)
+		values
+		<foreach item="item" index="index" collection="list"
+			separator=",">
+			(#{scno},#{item})
+		</foreach>
+	</insert>
+</mapper> 

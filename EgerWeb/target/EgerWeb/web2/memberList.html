@@ -1,0 +1,128 @@
+<!-- portBox Content -->
+<div id="myProject" class="portBox">
+	<div class="project">
+		<div class="project-info" style="font-size: 12px;">
+			<h4>회원정보</h4>
+			<table style="width: 100%; margin-bottom: 10px;">
+				<tr style="background-color: white; line-height: 10px;">
+					<td>바코드 No.</td>
+					<td id="modalBarcodeNo"></td>
+				</tr>
+				<tr style="background-color: white; line-height: 10px;">
+					<td>누적스탬프</td>
+					<td id="modalStackStamp"></td>
+				</tr>
+				<tr style="background-color: white; line-height: 10px;">
+					<td>누적포인트</td>
+					<td id="modalStackMileage"></td>
+				</tr>
+			</table>
+			<h4>쿠폰 리스트</h4>
+
+			<table id="modalPopTable" style="width: 100%; margin-bottom: 10px;">
+				<tr id="modalPapTableTR" style="line-height: 5px; display: none">
+					<td><input type="checkbox" /></td>
+					<td><label></label></td>
+					<td><label></label></td>
+					<td><label></label></td>
+				</tr>
+			</table>
+
+			<h4 style="margin-top: 0px;">
+				결재금액 <span style="color: red; float: right"></span>
+			</h4>
+			<table style="width: 100%; margin-bottom: 10px;">
+				<tr style="line-height: 5px;">
+					<td>현금결재금액</td>
+					<td style="float: right;"><input type="text" id="cashpay"
+						style="width: 100px;"> 원</td>
+				</tr>
+				<tr style="line-height: 5px;">
+					<td>카드결재금액</td>
+					<td style="float: right;"><input type="text" id="cardpay"
+						style="width: 100px;"> 원</td>
+				</tr>
+				<tr style="line-height: 5px;">
+					<td>사용할 포인트금액</td>
+					<td style="float: right;"><input type="text" id="usingPoint"
+						style="width: 100px;"> 원</td>
+				</tr>
+			</table>
+			<a id="modalStampCountBtn" href="#">스탬프 누적하고 결재하기</a> <a
+				id="modalCountBtn" href="#">결재하기</a>
+		</div>
+		<!-- Project Info Close -->
+	</div>
+	<!-- Project Close -->
+</div>
+<!-- portBox Close -->
+
+
+<!-- SLOGAN -->
+<div id="primary" class="hentry group wrapper-content">
+	<a id="memberListSearchForm3" href="#" style="float: left;">전체보기</a>
+	<fieldset style="clear: left;">
+		<div id="movingBTN" style="float: left;">
+			<img src="images/back32.png" class="beforeIMG" id="before"> <img
+				src="images/back32.png" class="afterIMG" id="after"> <img
+				src="images/barcodesend_offBTN.png" class="afterIMG" id="receiveBarcode">
+				<img src="images/chat.jpg" class="afterIMG" id="liveChat">
+		</div>
+
+		<input type="text" name="bno" id="memberListSearchForm"
+			style="width: 35%; margin-left: 25%; height: 10%"
+			placeholder="Barcode Search" /> <img src="images/back32.png"
+			class="searchenter" id="memberListSearchForm2"
+			style="margin-left: 5px; margin-bottom: -6px;">
+
+
+
+		<div style="float: right;">
+			<select id="memberListSearch">
+				<option value="1">1명씩</option>
+				<option value="5">5명씩</option>
+				<option value="10" selected>10명씩</option>
+				<option value="20">20명씩</option>
+				<option value="30">30명씩</option>
+				<option value="50">50명씩</option>
+				<option value="1000">모두보기</option>
+			</select> <img src="images/back32.png" class="membercountBTN"
+				id="memberaaaaaaaaa" style="margin-bottom: -6px;">
+		</div>
+	</fieldset>
+
+	<!-- START TABLE -->
+	<table id="memberListMainTable"
+		style="min-width: 100%; max-width: 100%; margin-top: 0px;"
+		class="short-table">
+
+		<thead>
+			<tr>
+				<th style="width: 25%">Barcode No.</th>
+				<th style="width: 25%">Stamp</th>
+				<th style="width: 25%">Mileage</th>
+				<th style="width: 25%">Registration</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr id="memberListForm" style="display: none"
+				class="memberListFormclass" data-displ="myProject">
+				<th class="features"><a href="#" id="myProjectDP"></a></th>
+				<td></td>
+				<td></td>
+				<td></td>
+		</tbody>
+		<tbody id="memberListnone">
+			<tr>
+				<td colspan="4">아직 해당가게에 가입된 단골손님이 없습니다.</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<!-- END CONTENT -->
+<script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="js/portBox.slimscroll.min.js"></script>
+<script src="memberList.js"></script>
+<link href="css/portBox.css" rel="stylesheet" />
+

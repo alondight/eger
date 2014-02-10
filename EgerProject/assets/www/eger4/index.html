@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>EGER</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.3.2.css" />
+<link rel="stylesheet" type="text/css" href="css/testList.css" />
+<link rel="stylesheet" type="text/css" href="css/testView.css" />
+<link rel="stylesheet" type="text/css" href="themes/mex.css" />
+<link rel="stylesheet" type="text/css" href="themes/mex.min.css" />
+
+<script src="js/md5.js"></script>
+<script src="js/jquery-1.10.2.js"></script>
+<script src="js/jquery.mobile-1.3.2.js"></script>
+<script src="../PushNotification.js"></script>
+<script src="../common.js"></script>
+<script src="../cordova.js"></script>
+<script type="text/javascript"
+      src="http://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAbYJeCpOzMoR7sM0p9mP2lsGaFkiFn-fs&sensor=true">
+    </script>
+<script src="js/index.js"></script>
+</head>
+
+<body>
+	<div data-role="page" data-theme="a" id="page4">
+	
+		<div id="eger4Header" data-role="header" data-position="fixed">
+			<a id="headerearchA">
+				<img id="headerSearch" src="images/readingGlassesICON2.png">
+			</a>
+			<h1><img id="headerEger" src="images/logo2.png"></h1>
+			<a id="headerUserA">
+				<img id="headerUser" src="images/header_userIcon.png">	
+			</a>
+		</div>
+		
+		<div id="storeNameSearchDIV" >
+			<input type="text" name="search" id="search-basic"
+			class="storeNameSearchBar" placeholder="My Store Search" />
+		</div>
+		
+		<div id="storeNameSearchBTN">
+			<img id="storeNameSearch" src="images/readingGlassesICON.png">
+		</div>
+
+			<div Id="secondHeader">
+				<div id="eger4SelectPosition" class="ui-grid-a">
+					<div class="ui-block-a">
+						<select name="select-choice-1" id="select-choiceall-1"
+							class="zoneSelect" data-type="horizontal">
+							<option value="0" selected="selected">지역전체</option>
+							<option value="서울">서울</option>
+							<option value="경기">경기</option>
+							<option value="인천">인천</option>
+							<option value="부산">부산</option>
+							<option value="대구">대구</option>
+							<option value="광주">광주</option>
+							<option value="대전">대전</option>
+							<option value="울산">울산</option>
+							<option value="강원">강원</option>
+							<option value="경남">경남</option>
+							<option value="경북">경북</option>
+							<option value="전남">전남</option>
+							<option value="전북">전북</option>
+							<option value="충남">충남</option>
+							<option value="충북">충북</option>
+							<option value="제주">제주</option>
+						</select>
+					</div>
+					<div class="ui-block-b">
+						<select name="select-choice-1" id="select-choiceall-2"
+							class="categorySelect" data-type="horizontal">
+							<option value="0" selected="selected">카테고리</option>
+							<option value="1">주점/음식점</option>
+							<option value="2">카페</option>
+							<option value="3">여행/숙박</option>
+							<option value="4">미용/뷰티</option>
+							<option value="5">패션/의류/잡화</option>
+							<option value="6">여가/문화</option>
+							<option value="7">가전/생활/가구</option>
+							<option value="8">컴퓨터/모바일</option>
+							<option value="9">유아/출산</option>
+							<option value="10">도서</option>
+							<option value="11">기타</option>
+						</select>
+					</div>
+				</div>
+			</div>
+		
+
+		<div data-role="content" id="storeListContent">
+			<div id="todayAddStoreList">
+				<label id="todayAddStoreLabel">내주변 <span id="best">BEST<span id="no"> 3</span></span>
+				<br></label>
+				<div id="todayAddStore0">
+					<img src="images/crown_gold.png" class="crownIcon">
+					<img id="todayAddStoreIMG0" class="todayAddStoreIMG"/>
+					<p id="todayAddStoreSname0" class="todayAddStoreSname"></p>
+					<p id="todayAddStoreAddress0" class="todayAddStoreAddress"></p>
+				</div>
+				<div id="todayAddStore1">
+					<img src="images/crown_silver.png" class="crownIcon">
+					<img id="todayAddStoreIMG1" class="todayAddStoreIMG"/>
+					<p id="todayAddStoreSname1" class="todayAddStoreSname"></p>
+					<p id="todayAddStoreAddress1" class="todayAddStoreAddress"></p>
+				</div>
+				<div id="todayAddStore2">
+					<img src="images/crown_bronze.png" class="crownIcon">
+					<img id="todayAddStoreIMG2" class="todayAddStoreIMG"/>
+					<p id="todayAddStoreSname2" class="todayAddStoreSname"></p>
+					<p id="todayAddStoreAddress2" class="todayAddStoreAddress"></p>
+				</div>
+				<img id="whiteRadiusIMG" src='images/black.png' />
+				<img id="whiteRadiusIMG" src='images/black.png' />
+				<img id="whiteRadiusIMG" src='images/black.png' />
+			</div>
+			
+
+
+			<div id="aroundStoreListDIV">
+				<div id="aroundStoreListDIVTo" class="ui-grid-a" style="display: none">
+					<div id="aroundStoreListLeft" class="ui-block-a aroundStoreList">
+						<img id="aroundStoreStarScoreIMG">
+						
+						<span id="LeftstoreMemberAndFeed">
+							<img id="feedIcon" src="images/feedicon.png" >
+							<span id="LeftfeedCount"></span>
+							<span>│</span>
+							<img id="userIcon" src="images/userIcon.png">
+							<span id="LeftmemberCount"></span>
+						</span>
+						<img id="blackDIV" src="images/black.png">
+						<span style="position: absolute;">
+						    <img id="mileageIMG" style="position: relative;left:48%; margin-top:4%;">
+							<img id="stampIMG"style="position: relative;left:48%;margin-top:4%;">
+							<img id="eventIMG"style="position: relative;left:48%;margin-top:4%;">
+						</span>
+						<img id="aroundStoreLeftIMG" style="display: inline-block;"/><br>
+						<div id="dotDIV45">
+							<span id="arroundStoreLeftName"></span>
+						</div>
+						<hr style="border: 1px thin #A6A6A6; width: 100%;">
+						
+							<img src="images/openTimeIMG.png" style="width: 6%; margin: 0 0 0 7.5%;">
+							<span id="arroundStoreLeftEtime"></span>
+						<div id="dotDIV">
+							<img src="images/pin.png" style="width: 5%;">
+							<span id="arroundStoreLeftAddress"></span>
+						</div>
+					</div>
+
+
+					<div id="aroundStoreListRight" class="ui-block-b aroundStoreList">
+						<img id="aroundStoreStarScoreIMG_right">
+						
+						<div id="RightstoreMemberAndFeed">
+							<img id="feedIconRight" src="images/feedicon.png">
+							<span id="RightfeedCount"></span>
+							<span>│</span>
+							<img id="userIconRight" src="images/userIcon.png">
+							<span id="RightmemberCount"></span>
+						</div>
+						
+						<img id="blackDIVRight" src="images/black.png">
+						<span style="position: absolute;">
+						    <img id="mileageIMGRight" style="position: relative;left:48%; margin-top:4%;">
+							<img id="stampIMGRight"style="position: relative;left:48%;margin-top:4%;">
+							<img id="eventIMGRight"style="position: relative;left:48%;margin-top:4%;">
+						</span>
+						<img id="aroundStoreRightIMG" style="display: inline-block;"/><br>
+						<div id="dotDIV45">
+							<span id="arroundStoreRightName"></span><br>
+						</div>
+						<hr style="border: 1px thin #A6A6A6; width: 100%;">
+							<img src="images/openTimeIMG.png" style="width: 6%; margin: 0 0 0 7.5%;">
+							<span id="arroundStoreRightEtime"></span>
+						<div id="dotDIV">
+							<img src="images/pin.png" style="width: 5%;">
+							<span id="arroundStoreRightAddress"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+</div>
+
+
+		<!--  MainCOntent -->
+		<div data-role="content" id="storeViewContent" style="display: none; ">
+			<label id="storeViewName" data-inline="true"></label>
+			<img id="myStoreAddBTN" src="images/pin1.png">
+			<img id="myStoreAddBTN2" src="images/pin2.png" style="display: none;">
+			<img id="storeStarScoreIMG">
+			<label id="storeStarScore"></label>
+			<span id="storeIMG_DIV">
+				<img id="storeViewClearIMG" src="images/clearBar.png">
+				<img id="storeViewIMG" />
+			</span>
+			
+			<div id="storeEventInfo">이벤트정보</div>
+
+			<table id="storeEventTable">
+				<tr>
+					<th>마일리지</th>
+					<td>
+						<label>현금 <span id="storeViewMileageCash"></span>%</label>
+						<label>카드 <span id="storeViewMileageCard"></span>%</label>
+					</td>
+				</tr>
+			</table>
+			
+			<table id="storeStampTable">
+				<tr>
+					<th>
+						스탬프
+					</th>
+					<td>
+					</td>
+				</tr>
+			</table>
+			
+			<table id="storeCouponeTable">
+				<tr>
+					<th>
+						쿠폰
+					</th>
+					<td>
+					</td>
+				</tr>
+			</table>
+
+			<hr>
+			<a href="#" id="chatFixed">
+			<span><img id="chatImage" src="images/chat.jpg" ></span>
+			<span>실시간 문의하기!</span>
+			</a>
+			<hr>
+
+
+			<div id="storeInfo">매장정보</div>
+			
+			<table id="storeInfoTable">
+				<tr>
+					<th valign="top">소개</th>
+					<td></td>
+				</tr>
+				<tr>
+					<th>운영시간</th>
+					<td></td>
+				</tr>
+				<tr>
+					<th>전화번호</th>
+					<td>
+						<img id="phoneIcon" src="images/Phone-icon.png">
+					</td>
+				</tr>
+				<tr>
+					<th valign="top">주소</th>
+					<td></td>
+				</tr>
+			</table>
+			<div id="map"></div>
+			<div id="feedList">문의 or 평가</div>
+			
+			<table id="feedTable">
+				<tr>
+					<th style="width: 25%">평가하기</th>
+					<th style="width: 65%">
+						<img src="images/clearStarBTN_IMG.png" id="clearStarBTN1" style="position: absolute; width: 8%;">
+						<img src="images/clearStarBTN_IMG.png" id="clearStarBTN2" style="position: absolute; width: 8%; left: 38%;">
+						<img src="images/clearStarBTN_IMG.png" id="clearStarBTN3" style="position: absolute; width: 8%; left: 47%;">
+						<img src="images/clearStarBTN_IMG.png" id="clearStarBTN4" style="position: absolute; width: 8%; left: 56%;">
+						<img src="images/clearStarBTN_IMG.png" id="clearStarBTN5" style="position: absolute; width: 8%; left: 65%;">
+						<img src="images/star0.png" id="star0" class="feedStarIMG">
+						<img src="images/star1.png" id="star1" class="feedStarIMG" style="display: none;">
+						<img src="images/star2.png" id="star2" class="feedStarIMG" style="display: none;">
+						<img src="images/star3.png" id="star3" class="feedStarIMG" style="display: none;">
+						<img src="images/star4.png" id="star4" class="feedStarIMG" style="display: none;">
+						<img src="images/star5.png" id="star5" class="feedStarIMG" style="display: none;">
+					</th>
+					<th style="width: 7%">
+						<label id="starScore"> 0.0 </label>
+					</th>
+					<th style="width: 3%">
+						<img id="starScoreClear" src="images/clear.png">
+						<img id="starScoreDelete" src="images/delete.png" style="display: none;">
+					</th>
+				</tr>
+			</table>
+
+			<div id="feedDIV">
+				<textarea id="feedContent" placeholder="문의사항은 내용만 입력하세요."></textarea>
+			</div>
+			
+			<div id="feedBTN">
+				<input id="feedAddBTN" type="button" value="등록">
+			</div>
+
+			<hr style="border: 1px thin #A6A6A6; width: 100%;">
+
+
+			<div id="feedTableList">
+				<div id="feedTableListTo" style="display: none; margin: 20px 0 20px 0;" class="feedTableListTo">
+					<img id="userFeedStarScoreIMG">
+					<img id="feedAddUser">
+					<div id="feedContentDIV">
+						<span id="feedContent"></span>
+					</div>
+					<div id="feedFloatRight">
+						<label id="feedRegdate"></label>
+						<img id="feedDelete">
+					</div>
+				<hr style="border: 1px thin #A6A6A6; width: 100%; margin: 20px 0;">
+				</div>
+			</div>
+		</div>
+		
+		<a href="#" id="scrollFixed" title=Top>
+			<img src="images/scrollTop.png">
+		</a>
+	</div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.bitacademy.java41.dao.Eger3Dao">
+	<select id="getStoreList" parameterType="String" resultType="Store">
+		SELECT		
+		a.S_ADDRESS,  a.SNAME, a.STIME, a.SNO, a.SPPATH, a.SCONTENT ,b.STACKSTAMP,b.STACKMILEAGE
+		from STORE a, STORE_CLIENT b
+		where a.SNO = b.SNO AND b.BARCODE =#{barcode};
+	</select>
+	<select id="storesearch" parameterType="map" resultType="Store">
+		SELECT
+		a.S_ADDRESS,  a.SNAME, a.STIME, a.SNO, a.SPPATH, a.SCONTENT ,b.STACKSTAMP,b.STACKMILEAGE
+		from STORE a, STORE_CLIENT b
+		where a.SNO = b.SNO AND b.BARCODE =#{barcode} AND a.SNAME LIKE #{inputsname};
+	</select>
+	
+	<select id="getScno" parameterType="map" resultType="StoreClient">
+		select sc.scno,sc.stackstamp,sc.stackmileage,s.sppath,s.sname,s.s_address
+		FROM STORE_CLIENT sc, STORE s
+		WHERE sc.BARCODE=#{barcode} AND s.SNO = #{sno} and sc.sno = s.sno;
+	</select>
+
+	<select id="getCmileage" parameterType="int" resultType="CMileage">
+		select CMILENO,CHANGEMILE,MILE_REG_DATE
+		FROM CMILEAGE
+		WHERE SCNO = #{scno}
+		order by MILE_REG_DATE desc;
+	</select>
+	
+	<select id="getEvent" parameterType="int" resultType="Event">
+		select b.COUPONE_NO,b.SNO,b.ECONTENT,b.ETIME,b.ECONDITION,b.E_REG_DATE,b.E_COUPONE_LEVEL,c.SNAME,c.SPPATH,c.s_address
+		FROM CCOUPONE a, EVENT b,STORE c
+		WHERE a.COUPONE_NO = b.COUPONE_NO AND a.COUPONE_LEVEL=0 AND a.SCNO =#{scno} AND b.SNO = c.SNO;
+	</select>
+	
+	<select id="getStamp" parameterType="int" resultType="Stamp">
+		SELECT	sno, stamp_rate, stamp_level
+		FROM	 STAMP
+		where	sno = #{sno};
+	</select>
+	
+	<select id="couponCount" parameterType="map" resultType="int"><![CDATA[
+		select	count(*)
+		from	CCOUPONE c, STORE_CLIENT s
+		where	c.SCNO = s.SCNO and s.SNO = #{sno} and s.BARCODE = #{barcode}
+				and c.COUPONE_LEVEL = 0;
+	]]></select>
+</mapper> 
+
